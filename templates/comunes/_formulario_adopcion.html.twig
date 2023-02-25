@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adoptando 🐶
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center p-3">Estas adoptando a 🐶</h1>
+	<div class="row">
+		<div
+			class="col-12 d-flex flex-column justify-content-center">
+			{# foto del perro #}
+			<img src="/uploads/fotos/{{ perro.foto }}" class="img-fluid rounded-top" alt="Foto del perro">
+			<h1 class="text-center">{{ perro.nombre }}</h1>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-6">
+		<h3 class="m-4 text-center">Formulario de contacto</h3>
+		<p><strong>Rellene el formulario para ponernos en contacto:</strong></p>
+			{# {% include "perro/_formulario.html.twig" with {'accion': path('app_insertar_perro') } %} #}
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+
+			<button type="submit" class="btn btn-dark">Confirmar 🧡</button>
+			<a name="" id="" class="btn btn-info" href="{{ path('app_index') }}" role="button">Volver</a>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

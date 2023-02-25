@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar 🐶
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center p-3">Editar datos del 🐶</h1>
+    <div class="row">
+        <div class="col-md-6">
+            {# foto del perro #}
+            <img src="/uploads/fotos/{{ perro.foto }}" class="img-fluid rounded-top" alt="Foto del perro">
+        </div>
+        <div class="col-md-6">
+            {% include "comunes/_mensajes.html.twig" %}
+            {# {% include "perro/_formulario.html.twig" with {'accion': path('app_insertar_perro') } %} #}
+            {{ form_start(perroForm) }}
+                {{ form_widget(perroForm) }}
+
+                <button type="submit" class="btn btn-dark">Editar!</button>
+                <a name="" id="" class="btn btn-info" href="{{ path('app_listado_perro') }}" role="button">Volver</a>
+            {{ form_end(perroForm) }}
+        </div>
+    </div>
+{% endblock %}

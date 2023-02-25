@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro Usuario🙎{% endblock %}
+
+{% block body %}
+	<h1 class="text-center p-3">Nuevo Usuario🙎</h1>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            {% include "comunes/_mensajes.html.twig" %}
+            {{ form_start(formulario, {'attr': {'novalidate':'novalidate'}}) }}
+                {{ form_widget(formulario) }}
+
+            <button type="submit" class="btn btn-dark">Registrar!</button>
+            {{ form_end(formulario) }}
+        </div>
+    </div>
+{% endblock %}

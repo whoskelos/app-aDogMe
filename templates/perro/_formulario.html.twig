@@ -1,0 +1,32 @@
+<form class="bg-primary-subtle text-emphasis-primary rounded w-50" method="POST" enctype="multipart/form-data" action="{{ accion }}">
+	<div class="m-3">
+		<label for="nombre" class="form-label mt-2 fw-bold">Nombre del perro</label>
+		<input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp" required placeholder="Brownie" value="{{ perro.nombre }}">
+	</div>
+	<div class="m-3">
+		<label for="edad" class="form-label fw-bold">Edad del perro</label>
+		<input type="text" class="form-control" id="edad" name="edad" aria-describedby="emailHelp" required placeholder="4 años" value="{{ perro.edad }}">
+	</div>
+	<div class="m-3">
+		<label for="peso" class="form-label fw-bold">Peso del perro</label>
+		<input type="number" class="form-control" id="peso" name="peso" aria-describedby="emailHelp" required placeholder="4 (en KG)" value="{{ perro.peso }}">
+	</div>
+
+	<div class="m-3">
+		<label for="tamanyo" class="form-label fw-bold">Tamaño del perro</label>
+		<input type="text" class="form-control" id="tamanyo" name="tamanyo" aria-describedby="emailHelp" required placeholder="Mediano" value="{{ perro.tamanyo }}">
+	</div>
+
+	<div class="m-3">
+		<label for="descripcion" class="form-label fw-bold">Descripcion</label>
+		<input type="text" class="form-control" id="descripcion" name="descripcion" aria-describedby="emailHelp" required placeholder="Un perro muy bueno" value="{{ perro.descripcion }}">
+	</div>
+	<div
+		class="m-3">
+		<label for="foto" class="form-label fw-bold">Foto</label>
+		<input type="file" class="form-control" id="foto" name="foto" aria-describedby="emailHelp" required placeholder="Brownie" value="{{ perro.foto }}">
+	</div>
+	<div class="d-grid gap-2">
+		<button type="submit" class="btn btn-dark m-3" name="enviar">{{ etiqueta_btn_enviar|default('Guardar') }}</button>
+	</div>
+</form>

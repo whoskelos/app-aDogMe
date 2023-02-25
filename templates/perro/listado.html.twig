@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todos los perros
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center my-3">Mis perritos 🐶</h1>
+	{% include "comunes/_mensajes.html.twig" %}
+	<div class="d-flex flex-md-wrap justify-content-start">
+		{% for perro in perros  %}
+			<div class="card m-3" style="width: 18rem;">
+				<img src="/uploads/fotos/{{ perro.foto }}" class="card-img-top" alt="foto de perro">
+				<div class="card-body">
+					<h5 class="card-title">{{ perro.nombre }}</h5>
+					<p class="card-text">{{ perro.descripcion }}</p>
+					{{ include('perro/_delete_form.html.twig') }}
+				</div>
+			</div>
+		{% else %}
+			<div class="alert alert-warning" role="alert">
+				No hay perros disponibles
+			</div>
+		{% endfor %}
+	</div>
+	<div class="mt-3">
+		{{
+			include(
+				"comunes/_paginacion.html.twig",
+				{
+					elementos_por_pagina: constant(
+						'App\\Controller\\PerroController::ELEMENTOS_POR_PAGINA'
+					),
+					numero_total_elementos: perros.count,
+					pagina_actual: pagina
+				}
+			)
+		}}
+	</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de usuarios
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center my-3">Listado de usuarios</h1>
+
+		<table class="table table-info">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Email</th>
+					<th>Roles</th>
+					<th>Password</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.email }}</td>
+						<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+						<td>{{ user.password }}</td>
+						<td>
+							<a href="{{ path('app_user_show', {'id': user.id}) }}"><i class="fa-solid fa-eye"></i></a>
+							<a href="{{ path('app_user_edit', {'id': user.id}) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">No hay usuarios disponibles</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_user_new') }}" class="btn btn-primary">Nuevo usuario</a>
+	</div>
+{% endblock %}

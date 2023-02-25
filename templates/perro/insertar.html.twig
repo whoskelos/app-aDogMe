@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Insertar nuevo 🐶
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<h1 class="text-center p-3">Registra a un nuevo perrito! 🐶</h1>
+		{% include "comunes/_mensajes.html.twig" %}
+		<div class="col-md-6">
+			{{ form_start(perroForm, {'attr': {'novalidate':'novalidate'}}) }}
+			{{ form_widget(perroForm) }}
+
+			<button type="submit" class="btn btn-dark">Guardar!</button>
+			{{ form_end(perroForm) }}
+
+		</div>
+		<div class="col-md-6 d-flex align-items-center">
+			<img src="/img/register-perro.jpg" class="img-fluid rounded-top" alt="Foto de registro a un perro nuevo">
+		</div>
+	</div>
+{% endblock %}
