@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    const ELEMENTOS_POR_PAGINA = 8;
+    const ELEMENTOS_POR_PAGINA = 6;
     /**
      * @Route(
      * "/{pagina}",

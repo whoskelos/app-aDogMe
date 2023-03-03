@@ -24,7 +24,7 @@ use Symfony\Component\Mime\Email;
 
 class PerroController extends AbstractController
 {
-    const ELEMENTOS_POR_PAGINA = 8;
+    const ELEMENTOS_POR_PAGINA = 5;
     /**
      * @Route(
      * "/perros/{pagina}", 

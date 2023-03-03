@@ -1,29 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Todos los perros
+{% block title %} Mis perros
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center my-3">Mis perritos 🐶</h1>
-	{% include "comunes/_mensajes.html.twig" %}
-	<div class="d-flex flex-md-wrap justify-content-start">
-		{% for perro in perros  %}
-			<div class="card m-3" style="width: 18rem;">
-				<img src="/uploads/fotos/{{ perro.foto }}" class="card-img-top" alt="foto de perro">
-				<div class="card-body">
-					<h5 class="card-title">{{ perro.nombre }}</h5>
-					<p class="card-text">{{ perro.descripcion }}</p>
-					{{ include('perro/_delete_form.html.twig') }}
+	<div class="row ">
+		{% include "comunes/_mensajes.html.twig" %}
+		<div class="col-12">
+			<h1 class="text-center my-3">Mis perritos 🐶</h1>
+		</div>
+		<div class="col-12 d-flex flex-column flex-md-row flex-wrap justify-content-center align-items-center align-items-md-stretch">
+			{% for perro in perros  %}
+				<div class="card m-3" style="width: 18rem;">
+					<img src="/uploads/fotos/{{ perro.foto }}" class="card-img-top" alt="foto de perro">
+					<div class="card-body">
+						<h5 class="card-title">{{ perro.nombre }}</h5>
+						<p class="card-text">{{ perro.descripcion }}</p>
+						{% if perro.adoptado %}
+							<a href="#" class="btn btn-danger btn-disabled fw-bold">
+								Adoptado 😌</a>
+						{% else %}
+							<a href="{{ path('app_adoptar_perro',{'id': perro.id})}}" class="btn btn-warning fw-bold">
+								Adoptar 🐾</a>
+						{% endif %}
+					</div>
 				</div>
-			</div>
-		{% else %}
-			<div class="alert alert-warning" role="alert">
-				No hay perros disponibles
-			</div>
-		{% endfor %}
+			{% else %}
+				<div class="alert alert-warning" role="alert">
+					No has adoptado
+				</div>
+			{% endfor %}
+		</div>
 	</div>
-	<div class="mt-3">
-		{{
+	<div class="col-12 d-flex justify-content-center">
+		<div class="mt-3">
+			{{
 			include(
 				"comunes/_paginacion.html.twig",
 				{
@@ -35,5 +46,6 @@
 				}
 			)
 		}}
+		</div>
 	</div>
 {% endblock %}
