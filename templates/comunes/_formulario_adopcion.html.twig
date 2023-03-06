@@ -4,26 +4,25 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center p-3">Estas adoptando a 🐶</h1>
-	<div class="row">
-		<div
-			class="col-12 d-flex flex-column justify-content-center">
+	<div class="row d-flex justify-content-center mt-3">
+		<h1 class="text-center">Estas adoptando a 🐶</h1>
+		<div class="col-md-6">
 			{# foto del perro #}
 			<img src="/uploads/fotos/{{ perro.foto }}" class="img-fluid rounded-top" alt="Foto del perro">
 			<h1 class="text-center">{{ perro.nombre }}</h1>
 		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="col-6">
-		<h3 class="m-4 text-center">Formulario de contacto</h3>
-		<p><strong>Rellene el formulario para ponernos en contacto:</strong></p>
-			{# {% include "perro/_formulario.html.twig" with {'accion': path('app_insertar_perro') } %} #}
-			{{ form_start(form) }}
-			{{ form_widget(form) }}
+		<div class="col-md-6 d-flex flex-column align-items-center">
+			<div class="card bg-light mb-3" style="width:30rem">
+				<div class="card-header">Formulario de adopción 🐶</div>
+				<div class="card-body p-3">
+					{# formulario #}
+					{{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+					{{ form_widget(form) }}
 
-			<button type="submit" class="btn btn-dark">Confirmar 🧡</button>
-			<a name="" id="" class="btn btn-info" href="{{ path('app_index') }}" role="button">Volver</a>
-			{{ form_end(form) }}
+					<button type="submit" class="btn btn-warning">Guardar!</button>
+					{{ form_end(form) }}
+				</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}

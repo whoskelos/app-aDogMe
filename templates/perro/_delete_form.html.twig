@@ -1,5 +1,4 @@
 <form method="post" action="{{ path('app_eliminar_perro', {'id': perro.id}) }}" onsubmit="return confirm('Seguro que desea eliminar este perro?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ perro.id) }}">
     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-    <a class="btn btn-warning" href="{{ path('app_editar_perro', {'id':perro.id}) }}" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
 </form>

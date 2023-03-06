@@ -4,16 +4,21 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row">
-		<h1 class="m-3">Crear nuevo usuario</h1>
-		<div class="col-md-6">
-			{{ include('user/_form.html.twig') }}
-			<div class="my-3">
-				<a href="{{ path('app_user_index') }}">Volver a la lista</a>
-			</div>
-		</div>
+	<div class="row justify-content-center">
+		<h1 class="m-3 text-center text-md-start">Formulario</h1>
 		<div class="col-md-6">
 			<img src="/img/register.jpg" class="img-fluid rounded-top" alt="Foto del registro">
+		</div>
+		<div class="col-md-6 d-flex flex-column align-items-center">
+			<div class="card bg-light mb-3" style="width:30rem">
+				<div class="card-header">Nuevo Usuario</div>
+				<div class="card-body">
+					{{ include('user/_form.html.twig') }}
+				</div>
+			</div>
+			<div class="">
+				<a href="{{ path('app_user_index') }}">Volver a la lista</a>
+			</div>
 		</div>
 	</div>
 {% endblock %}

@@ -1,35 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User
+{% block title %}Usuario
 {% endblock %}
 
 {% block body %}
-	<h1 class="my-3">Detalles de: {{ user.nombre }}</h1>
-
-	<table class="table table-dark">
-		<tbody>
-			<tr>
-				<th>Id</th>
-				<td>{{ user.id }}</td>
-			</tr>
-			<tr>
-				<th>Email</th>
-				<td>{{ user.email }}</td>
-			</tr>
-			<tr>
-				<th>Roles</th>
-				<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-			</tr>
-			<tr>
-				<th>Password</th>
-				<td>{{ user.password }}</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<div class="mb-3">
-		<a class="" href="{{ path('app_user_index') }}">Volver a la lista</a>
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-12 d-flex justify-content-center justify-content-md-start">
+				<div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+					<div class="card-header">Detalles de:
+						{{ user.nombre }}</div>
+					<div class="card-body">
+						<h4 class="card-title">Datos:</h4>
+						<p>ID:
+							{{ user.id }}</p>
+						<p>Email:
+							{{ user.email }}</p>
+						<p>Roles:
+							{{ user.roles ? user.roles|json_encode : '' }}</p>
+						<p>Password:
+							{{ user.password }}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 d-flex justify-content-center justify-content-md-start">
+				<a name="" id="" class="btn btn-primary me-2" href="{{ path('app_user_index') }}" role="button">Volver</a>
+				{{ include('user/_delete_form.html.twig') }}
+			</div>
+		</div>
 	</div>
-	{{ include('user/_delete_form.html.twig') }}
+
 
 {% endblock %}

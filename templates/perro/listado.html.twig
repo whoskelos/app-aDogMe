@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Mis perros
+{% block title %}
+	Mis perros
 {% endblock %}
 
 {% block body %}
@@ -17,8 +18,12 @@
 						<h5 class="card-title">{{ perro.nombre }}</h5>
 						<p class="card-text">{{ perro.descripcion }}</p>
 						{% if perro.adoptado %}
-							<a href="#" class="btn btn-danger btn-disabled fw-bold">
-								Adoptado 😌</a>
+							<div class="d-flex">
+								<a class="btn btn-info btn-disabled fw-bold" href="{{ path('app_editar_perro',{'id': perro.id})}}">
+									<i class="fa-solid fa-pen"></i>
+								</a>
+								{{ include('perro/_delete_form.html.twig') }}
+							</div>
 						{% else %}
 							<a href="{{ path('app_adoptar_perro',{'id': perro.id})}}" class="btn btn-warning fw-bold">
 								Adoptar 🐾</a>
@@ -26,8 +31,8 @@
 					</div>
 				</div>
 			{% else %}
-				<div class="alert alert-warning" role="alert">
-					No has adoptado
+				<div class="alert alert-warning me-2" role="alert">
+					No has adoptado aún
 				</div>
 			{% endfor %}
 		</div>
